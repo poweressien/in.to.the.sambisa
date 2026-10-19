@@ -1,0 +1,8 @@
+{
+  "appId": "com.iwekobongstudios.sambiza",
+  "appName": "IN TO THE SAMBIZA",
+  "webDir": "www",
+  "backgroundColor": "#000000",
+  "android": { "allowMixedContent": false, "backgroundColor": "#000000" },
+  "server": { "androidScheme": "https" }
+}

@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="format-detection" content="telephone=no">
+<meta name="theme-color" content="#0b0f0c">
+<title>IN TO THE SAMBIZA</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="app" class="menu">
+  <canvas id="c"></canvas>
+
+  <div id="hud">
+    <div id="tl">
+      <div id="stats"><span>ALIVE</span><b id="alive">0</b><i></i><span>KILL</span><b id="kills">0</b></div>
+      <div id="tag"><em>1</em><span>RIDER</span></div>
+      <div id="track"></div>
+      <div id="feed"></div>
+    </div>
+    <canvas id="compass" width="720" height="40"></canvas>
+    <div id="tr">
+      <div id="mmwrap"><canvas id="mm" width="280" height="280"></canvas></div>
+      <div id="timer">05:30</div>
+      <div id="prog"><i id="progbar"></i></div>
+      <div id="smallbtns">
+        <button id="btnView" class="sq" aria-label="Camera"><svg viewBox="0 0 24 24"><path d="M4 8h3l1.5-2h7L17 8h3a1 1 0 0 1 1 1v9a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1z" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="13" r="3.4" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></button>
+        <button id="btnPause" class="sq" aria-label="Pause"><svg viewBox="0 0 24 24"><path d="M8 5v14M16 5v14" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></svg></button>
+      </div>
+    </div>
+
+    <div id="center">
+      <div id="cross"><i></i><i></i><i></i><i></i></div>
+      <div id="hitm"><i></i><i></i><i></i><i></i></div>
+      <div id="lock"><div class="br"></div><div id="lockname"></div><div id="lockhp"><i></i></div><div id="lockbest"></div></div>
+      <div id="banner"><b></b><span></span></div>
+      <div id="toast"></div>
+    </div>
+
+    <div id="bottom">
+      <div id="wbar"></div>
+      <div id="hpwrap"><div id="hpbar"><i></i></div><div id="reload"><i></i></div></div>
+    </div>
+
+    <div id="left">
+      <button id="gear" class="rb gearbtn" aria-label="Gear">
+        <svg class="ga up" viewBox="0 0 24 12"><path d="M3 10l9-8 9 8" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <div id="gearbox"><small>GEAR</small><b id="gearn">N</b><div id="gearpips"><i></i><i></i><i></i><i></i><i></i></div></div>
+        <svg class="ga dn" viewBox="0 0 24 12"><path d="M3 2l9 8 9-8" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+    </div>
+
+    <div id="right">
+      <button id="bDown" class="rb mid"><svg viewBox="0 0 24 24"><circle cx="12" cy="5" r="2.2" fill="currentColor"/><path d="M12 8v6l-3 6M12 14l3 6M7 10l5-2 4 3" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/><path d="M19 15v6M16.5 18.5 19 21l2.5-2.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>DISMOUNT</span></button>
+      <button id="bUp" class="rb mid"><svg viewBox="0 0 24 24"><circle cx="6" cy="17" r="3.2" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="18" cy="17" r="3.2" fill="none" stroke="currentColor" stroke-width="2"/><path d="M6 17l4-7h5l3 7M10 10l-1-3h-2" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M12 3v4M9.8 5.2 12 3l2.2 2.2" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>CLIMB ON</span></button>
+      <button id="bLeft" class="rb lane"><svg viewBox="0 0 24 24"><path d="M20 12H5M11 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+      <button id="bRight" class="rb lane"><svg viewBox="0 0 24 24"><path d="M4 12h15M13 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+      <button id="bShoot" class="rb big"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="6.5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="1.8" fill="currentColor"/><path d="M12 1.5v5M12 17.5v5M1.5 12h5M17.5 12h5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button>
+    </div>
+
+    <div id="scope"><i></i></div>
+    <div id="hurtfx"></div>
+    <div id="whitefx"></div>
+  </div>
+
+  <div id="title" class="screen">
+    <div class="card">
+      <small>iWEKOBONGstudios presents</small>
+      <h1 id="gameTitle" class="blood" aria-label="IN TO THE SAMBIZA">IN TO THE<br>SAMBIZA☠️🚧</h1>
+      <h2>FOREST HIGHWAY · BIKE MODE</h2>
+      <p>Bandits, terrorists and kidnappers have taken the forest road. Ride the highway, clear the convoy, make it to the finish gate. <b>5½ minutes · checkpoint every 50 s.</b></p>
+      <div class="grid">
+        <div><b>LEFT</b>Gear circle — tap top ▲ / bottom ▼</div>
+        <div><b>RIGHT</b>◀ ▶ switch lane · Shoot · Dismount · Climb</div>
+        <div><b>AIM</b>Automatic — you pick the weapon</div>
+        <div><b>CAM</b>Behind view / Pointer view</div>
+      </div>
+      <div class="hints"><span>🚛 TRUCK → NUKE</span><span>🛡 ARMOR CAR → RPG / NUKE</span><span>🚁 CHOPPER → SNIPER / RPG / FRAG</span><span>🔫 ON FOOT → SNIPER / AK-47 / SMG</span></div>
+      <button id="btnStart" class="cta">START MISSION</button>
+      <em>Keyboard: W/S gear · A/D lane · Space shoot · Q/E weapon · 1-7 select · C camera · F dismount/mount · P pause</em>
+    </div>
+  </div>
+
+  <div id="pause" class="screen hide">
+    <div class="card small">
+      <h2>PAUSED</h2>
+      <button id="pResume" class="cta">RESUME</button>
+      <div class="row"><button id="pMusic" class="ghost">MUSIC: ON</button><button id="pSfx" class="ghost">SFX: ON</button></div>
+      <div class="row"><button id="pQual" class="ghost">GRAPHICS: HIGH</button></div>
+      <button id="pRestart" class="ghost">RESTART MISSION</button>
+    </div>
+  </div>
+
+  <div id="end" class="screen hide">
+    <div class="card small">
+      <h2 id="endTitle">MISSION COMPLETE</h2>
+      <p id="endSub"></p>
+      <div id="endStats"></div>
+      <button id="endBtn" class="cta">PLAY AGAIN</button>
+    </div>
+  </div>
+
+  <div id="rotate"><div>↻</div><b>ROTATE YOUR PHONE</b><span>Landscape mode</span></div>
+</div>
+<script>
+/* blood-drip title: wraps each letter and hangs a drip under it */
+(function(){var t=document.getElementById('gameTitle');if(!t)return;
+var lines=['IN TO THE','SAMBIZA☠️🚧'],out='',n=0;
+lines.forEach(function(L,li){
+  if(li)out+='<br>';
+  var chars=Array.from(L);
+  for(var i=0;i<chars.length;i++){
+    var c=chars[i];
+    if(c===' '){out+='<span class="sp"> </span>';continue;}
+    var emoji=c.charCodeAt(0)>255||c==='\uFE0F';
+    if(c==='\uFE0F'){out+=c;continue;}
+    var drip=(!emoji&&((n*7+li*3)%10<7));
+    var len=(0.35+((n*37)%10)/10*0.95).toFixed(2), dl=(((n*53)%17)/10).toFixed(2), du=(2.6+((n*29)%10)/4).toFixed(2), w=(0.07+((n*13)%4)*0.02).toFixed(2);
+    out+='<span class="ch'+(emoji?' em':'')+'">'+c+(drip?'<i class="dr" style="--len:'+len+'em;--dl:'+dl+'s;--du:'+du+'s;--w:'+w+'em"></i>':'')+'</span>';
+    n++;
+  }
+});
+t.innerHTML=out;
+})();
+</script>
+<script src="game.js"></script>
+</body>
+</html>

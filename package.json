@@ -1,0 +1,19 @@
+{
+  "name": "into-the-sambiza",
+  "version": "1.0.0",
+  "description": "IN TO THE SAMBIZA - 3D bike shooter (Android Capacitor WebView)",
+  "private": true,
+  "scripts": {
+    "build": "node build.mjs && node prepare-www.mjs",
+    "sync": "npm run build && npx cap sync android",
+    "apk": "npm run sync && cd android && gradlew assembleDebug",
+    "open": "npx cap open android"
+  },
+  "dependencies": {
+    "@capacitor/android": "^7.0.0",
+    "@capacitor/cli": "^7.0.0",
+    "@capacitor/core": "^7.0.0",
+    "esbuild": "^0.28.2",
+    "three": "^0.170.0"
+  }
+}

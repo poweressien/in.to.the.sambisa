@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">IN TO THE SAMBIZA</string>
+    <string name="title_activity_main">IN TO THE SAMBIZA</string>
+    <string name="package_name">com.iwekobongstudios.sambiza</string>
+    <string name="custom_url_scheme">com.iwekobongstudios.sambiza</string>
+</resources>
